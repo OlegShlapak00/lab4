@@ -1,0 +1,10 @@
+*{
+margin: 2;
+padding: 2;
+}
+#photo{
+  border:5px solid red;
+}
+.form__block{
+  width: 200px;
+}
