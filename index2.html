@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style2.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="script2.js"></script>
+
+  <h1>Середні бали студентів</h1>
+  <table class="table_cl" id='Table'>
+    <tr class="table__head">
+      <th> </th>
+      <th>Студент</th>
+      <th>Оцінка</th>
+    </tr>
+    <tr class="row">
+      <td><button type="button" name="button" class="delete">Delete</button></td>
+      <td><p class="row_student" contenteditable="true" data-student-name="Bася">Bася</p></td>
+      <td><p class="row_value" contenteditable="true" data-value="20">20</p></td>
+    </tr>
+    <tr class="row">
+      <td><button type="button" name="button" class="delete">Delete</button></td>
+      <td><p class="row_student" contenteditable="true" data-student-name="Вова">Вова</p></td>
+      <td><p class="row_value" contenteditable="true" data-value="40">40</p></td>
+    </tr>
+    <tr class="row">
+      <td><button type="button" name="button" class="delete">Delete</button></td>
+      <td><p class="row_student" contenteditable="true" data-student-name="Вітя">Вітя</p></td>
+      <td><p class="row_value" contenteditable="true" data-value="50">50</p></td>
+    </tr>
+    <tr class="row">
+      <td><button type="button" name="button" class="delete">Delete</button></td>
+      <td><p class="row_student" contenteditable="true" data-student-name="Галя">Галя</p></td>
+      <td><p class="row_value" contenteditable="true" data-value="70">70</p></td>
+    </tr>
+  </table>
+  <table>
+    <tr class="row_ex" id="row">
+      <td><button type="button" name="button" class="delete">Delete</button></td>
+      <td><p class="row_student" contenteditable="true" data-student-name=""></p></td>
+      <td><p class="row_value" contenteditable="true" data-value=""></p></td>
+    </tr>
+  </table>
+  <input type="button" name="" value="Додати+" onclick="addRow();">
+  <input type="button" name="" value="Прийняти" onclick="fun();">
+
+  <h1>Діаграма</h1>
+  <section id="diagram" class="diagram">
+    <div class="diagram__colum">
+      <div class="diagram_color"></div>
+      <h4 class="diagram__columDeskr">Вася</h4>
+    </div>
+    <div class="diagram__colum">
+      <div class="diagram_color"></div>
+      <h4 class="diagram__columDeskr">Вова</h4>
+    </div>
+    <div class="diagram__colum">
+      <div class="diagram_color"></div>
+      <h4 class="diagram__columDeskr">Вітя</h4>
+    </div>
+    <div class="diagram__colum">
+      <div class="diagram_color"></div>
+      <h4 class="diagram__columDeskr">Галя</h4>
+    </div>
+  </section>
+
+  <div class="diagram__colum" id="col_ex">
+    <div class="diagram_color"></div>
+    <h4 class="diagram__columDeskr">"Не вказано"</h4>
+  </div>
+
+</body>
+</html>

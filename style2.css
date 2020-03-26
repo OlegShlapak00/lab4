@@ -1,0 +1,21 @@
+*{
+  padding: 2px;
+}
+.diagram{
+  display: flex;
+}
+.diagram__colum{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.diagram_color{
+  width: 50px;
+  height: 100px;
+  background-color: blue;
+}
+
+#row, #col_ex{
+  display: none;
+}

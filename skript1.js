@@ -1,5 +1,4 @@
 
-
 function isNumber(elem){
   if( Number(elem)>0 && Number(elem)< 5000){
     return true;
