@@ -11,7 +11,6 @@ function isEnglish(elem){
     return /[a-z]/i.test(elem);
 }
 
-
 function resize(){
 
   let Submited=true;
