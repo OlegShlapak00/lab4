@@ -29,28 +29,25 @@ function fun(){
   let diagram__color_h = document.getElementById("diagram").querySelectorAll('.diagram_color');
   let diagram__columDeskr_h = document.getElementById("diagram").querySelectorAll('.diagram__columDeskr');
 
-let test=[];
+  let test=[];
 
   let i=0;
   for (let elem of diagram__color_h) {
-
+    elem.addEventListener("mouseover",  function f2() {mouseOnDiagram(elem)}, false);
+    elem.addEventListener("mouseout",  function f3() {mouseOutDiagram(elem)}, false);
     elem.style.height=`${values[i]}px`;
-
+    elem.classList.add("addPading");
+    elem.setAttribute("data-height",values[i]);
     i++;
   }
   i=0;
-
 
   for (let elem of diagram__columDeskr_h) {
     elem.innerText=students[i];
     i++;
     diagram__columDeskr.push(elem.textContent);
-    /////////
+
   }
-
-console.log(students);
-console.log(values);
-
 }
 
 
@@ -71,17 +68,29 @@ function addDiagram(){
 
 
 function remove(elem) {
+
+  //remove diagram
+  let student = elem.parentNode.parentNode.querySelector('.row_student');
+  let col_deskr = document.getElementById("diagram").querySelectorAll('.diagram__columDeskr');
+    for(element of col_deskr){
+      if( element.textContent===student.textContent){
+        element.parentNode.remove();
+      }
+    }
   //remove  row
     let newElem=elem.parentNode.parentNode;//grandParentNode :)
-    while (newElem.firstChild) {
-    newElem.removeChild(newElem.firstChild);
-  }
-  //remove diagram
-  let col_desk = document.getElementById("Table").querySelectorAll('.diagram__columDeskr');
-
-  removeDiagram();
+    newElem.remove();
 }
 
-function removeDiagram() {
+function mouseOnDiagram(elem) {
+  let alt_text =document.createElement("p");
+  alt_text.setAttribute("class","alt_text");
+  elem.classList.remove("addPading");
 
+  alt_text.innerText=elem.dataset.height;
+  elem.parentNode.insertBefore(alt_text,elem.parentNode.firstChild);
+}
+function mouseOutDiagram(elem) {
+  elem.parentNode.firstChild.remove();
+  elem.classList.add("addPading");
 }
