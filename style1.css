@@ -8,3 +8,9 @@ padding: 2;
 .form__block{
   width: 200px;
 }
+.red_border{
+  border:2px solid red;
+}
+.green_border{
+  border:2px solid green;
+}

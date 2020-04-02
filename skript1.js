@@ -1,5 +1,6 @@
 
 function isNumber(elem){
+  elem=elem.value;
   if( Number(elem)>0 && Number(elem)< 5000){
     return true;
   }
@@ -8,69 +9,73 @@ function isNumber(elem){
   }
 }
 function isEnglish(elem){
-    return /[a-z]/i.test(elem);
+  elem=elem.value;
+
+    return !/[^a-z]/i.test(elem);
 }
 
-console.log(document.getElementsByClassName('form'));
-document.getElementsByClassName('form').onsubmit=function(evtnt){Validation(event)};
+window.onload=function(){
+  fun();
+}
 
+function fun() {
+  let inputs_numbers=document.querySelectorAll('.input_n');
+  inputs_numbers.forEach((element) => {
+    element.addEventListener("change",  function f() { NumVal(element) });
+  });
 
+  let inputs_l=document.querySelectorAll('.input_l');
+  inputs_l.forEach((element) => {
+    element.addEventListener("change",  function f() { LenVal(element) });
+  });
 
-    function Validation(event) {
-    let Submited=true;
-
-    let width=document.getElementById('input_width').value;
-    if(!isNumber(width)){
-      document.getElementById('input_width').style="border-color: red";
-      Submited=false;
-    }
-
-    let height=document.getElementById('input_height').value;
-    if(!isNumber(height)){
-      document.getElementById('input_height').style="border-color: red";
-      Submited=false;
-    }
-
-    let b_size=document.getElementById('border_size').value;
-    if(!isNumber(b_size)){
-      document.getElementById('border_size').style="border-color: red";
-      Submited=false;
-    }
-
-    let b_color=document.getElementById('border_color').value;
-    if(!isEnglish(b_color)){
-      document.getElementById('border_color').style="border-color: red";
-      Submited=false;
-    }
-
-    let alt_text=document.getElementById('alternative_text').value;
-    if(!isEnglish(alt_text)){
-      document.getElementById('alternative_text').style="border-color: red";
-      Submited=false;
-    }
-
-
-    if (!Submited) {
-      event.preventDefault();
+  let form =document.forms[0];
+  form.onsubmit=function f(event) {
+    let isValid=true;
+    if (document.querySelectorAll('.red_border').length!==0) {
+       isValid=false;
+       event.preventDefault();
+       console.log("Форма не відправилась");
     }
     else {
-    resize();
+      let img=document.querySelector('#photo');
+
+
+      let width=document.getElementById('input_width').value;
+      let heigth=document.getElementById('input_height').value;
+      let bd_size=document.getElementById('border_size').value;
+      let bd_color=document.getElementById('border_color').value;
+      let alt_text=document.getElementById('alternative_text').value;
+
+      img.style.width =`${width}px`;
+      img.style.height =`${heigth}px`;
+      img.style.border =`${bd_size}px solid ${bd_color} `;
+      img.setAttribute("alt",`${alt_text}`);
+      console.log(img);
     }
+    return false; // якщо ми замінимо false на isValid то форма відправиться і оновиться сторінка
+  }
+
+}
+function NumVal(element) {
+
+  if (isNumber(element)) {
+    element.classList.add('green_border');
+    element.classList.remove('red_border');
+  }
+  else {
+    element.classList.add('red_border');
+    element.classList.remove('green_border');
+  }
 }
 
-function resize(){
-
-
-  document.form.input.addEventListener("onfocus",function ClearBorder(event) {
-  console.log(event);
-  event.target.style="border-color: green";
-})
-  let img=document.getElementById('photo');
-  img.setAttribute("style",
-  `height:${height}px;
-   width: ${width}px;
-   border:${b_size}px solid ${b_color};`);
-   img.setAttribute("alt",`${alt_text}`);
-
-
+function LenVal(element) {
+  if (isEnglish(element)) {
+    element.classList.add('green_border');
+    element.classList.remove('red_border');
+  }
+  else {
+    element.classList.add('red_border');
+    element.classList.remove('green_border');
+  }
 }
