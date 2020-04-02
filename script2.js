@@ -3,7 +3,6 @@ window.onload=function(){
   fun();
 }
 
-
 function fun(){
   let students_h = document.getElementById("Table").querySelectorAll('.row_student');
   let values_h = document.getElementById("Table").querySelectorAll('.row_value');

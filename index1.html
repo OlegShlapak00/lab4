@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,37 +10,33 @@
 <body>
   <script src="skript1.js"></script>
   <h1>Зміна властивостей зображення</h1>
-  <img src="img.jpg" alt="something" id="photo" width="1000px">
+  <img src="img.jpg" alt="something" id="photo" width="1000px" >
 
-  <form class="form" method="post" action="index1.htm" onsubmit="return resize();">
+  <form id="Form1" class="form" method="post">
     <h2>Зміна розмірів</h2>
     <div class="form__block">
       <label for="input_width">Ширина</label>
-      <input type="text" id="input_width" class="input_width">
+      <input type="text" id="input_width"  class="input_width input_n">
 
       <label for="input_height">Висота</label>
-      <input type="text" id="input_height">
+      <input type="text" id="input_height" class="input_n">
 
     </div>
     <h2>Зміна рамки</h2>
     <div class="form__block">
       <label for="border_size">Товщина рамки</label>
-      <input type="text" id="border_size">
+      <input type="text" id="border_size" class="input_n">
 
       <label for="border_color">Колір рамки</label>
-      <input type="text" id="border_color">
+      <input type="text" id="border_color" class="input_l">
 
     </div>
     <h2>Додатково</h2>
     <div class="form__block">
       <label for="alternative_text">Альтернативний текст</label>
-      <input type="text" id="alternative_text">
+      <input type="text" id="alternative_text" class="input_l">
       <br>
     </div>
-
-
-
-
 
     <input type="submit" id="btn_submit"  value="ПУСК">
   </form>
