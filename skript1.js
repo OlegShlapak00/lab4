@@ -3,7 +3,7 @@ function isNumber(elem){
   elem=elem.value;
   if( Number(elem)>0 && Number(elem)< 5000){
     return true;
-  }
+  } 
   else {
     return false;
   }
